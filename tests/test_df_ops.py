@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 
-from df_ops import (
+from src.df_ops import (
     build_dataframe,
     mean_age,
     mean_salary,

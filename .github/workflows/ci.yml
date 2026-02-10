@@ -1,4 +1,4 @@
-name: CI - pytest
+name: CI - pytest + coverage
 
 on: [push, pull_request]
 
@@ -25,4 +25,4 @@ jobs:
 
       - name: Run tests
         run: |
-          PYTHONPATH=src pytest -q
+          PYTHONPATH=src pytest -q --cov=df_ops --cov-report=term --cov-report=xml

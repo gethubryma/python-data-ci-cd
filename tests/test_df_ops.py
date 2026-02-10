@@ -44,3 +44,9 @@ def test_filter_by_department_it():
 def test_row_count():
     df = build_dataframe()
     assert row_count(df) == 8
+
+
+def test_mean_salary_missing_column():
+    df = pd.DataFrame({"age": [25, 30]})  # manque "salaire"
+    with pytest.raises(ValueError):
+        mean_salary(df)

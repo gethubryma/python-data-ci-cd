@@ -16,29 +16,40 @@ Ce projet a pour but de mettre en place une démarche **CI (Intégration Continu
 - `.github/workflows/` : workflow CI GitHub Actions (tests automatiques)
 - `coverage.xml` : rapport de couverture (généré par pytest-cov)
 
+## Structure du projet
+
+NOM_PRENOM/
+├── src/
+│ ├── init.py
+│ └── df_ops.py
+├── tests/
+│ └── test_df_ops.py
+├── requirements.txt
+└── .github/
+└── workflows/
+└── tests.yml
 ---
 
 ## Ce que j’ai fait (étapes)
-1. Création du module `df_ops.py` avec des fonctions :
-   - `build_dataframe()`
-   - `mean_age()`
-   - `mean_salary()`
-   - `filter_by_department()`
-   - `row_count()`
-   - `_check_columns()` (vérifie la présence des colonnes et lève une erreur sinon)
 
-2. Écriture des tests avec **pytest** (`tests/test_df_ops.py`) :
-   - tests des valeurs de retour (moyennes, nombre de lignes, filtre)
+1. Création du module `src/df_ops.py` :
+   - création d’un DataFrame (`build_dataframe`)
+   - calculs : `mean_age`, `mean_salary`
+   - filtre : `filter_by_department`
+   - compteur de lignes : `row_count`
+   - vérification des colonnes : `_check_columns` (lève une erreur si colonne manquante)
+
+2. Création des tests `tests/test_df_ops.py` avec pytest :
+   - tests des résultats (moyennes, filtre, nombre de lignes)
    - test du cas d’erreur (colonne manquante) avec `pytest.raises(ValueError)`
 
-3. Ajout de la couverture de code (**pytest-cov**) :
-   - exécution locale
-   - génération de `coverage.xml`
+3. Ajout de la couverture de code :
+   - affichage des lignes manquantes (`--cov-report=term-missing`)
+   - génération du rapport `coverage.xml`
 
-4. Mise en place de la CI sur GitHub Actions :
+4. Mise en place de GitHub Actions :
    - installation des dépendances
-   - exécution de `pytest`
-   - génération du rapport de coverage
+   - exécution automatique de `pytest` + coverage
 
 ---
 
@@ -51,10 +62,10 @@ Ce projet a pour but de mettre en place une démarche **CI (Intégration Continu
 ### Installation (Ubuntu/WSL)
 
 ```bash
-python3 -m pip install --user pandas pytest pytest-cov
+sudo apt update && sudo apt install -y python3-pandas python3-pytest python3-pytest-cov
+
 ```
 
----
 
 ## Commandes utilisées
 
@@ -64,7 +75,7 @@ python3 -m pip install --user pandas pytest pytest-cov
 pytest
 ```
 
-✅ Permet de vérifier que toutes les fonctions du module fonctionnent correctement.
+ Permet de vérifier que toutes les fonctions du module fonctionnent correctement.
 
 ### 2) Lancer les tests avec détails
 
@@ -72,7 +83,7 @@ pytest
 pytest -v
 ```
 
-✅ Affiche chaque test exécuté (utile pour comprendre ce qui passe/échoue).
+ Affiche chaque test exécuté (utile pour comprendre ce qui passe/échoue).
 
 ### 3) Générer la couverture de code
 
@@ -80,7 +91,7 @@ pytest -v
 pytest --cov=src --cov-report=term-missing
 ```
 
-✅ Mesure le % de lignes exécutées par les tests et affiche les lignes manquantes.
+ Mesure le % de lignes exécutées par les tests et affiche les lignes manquantes.
 
 ### 4) Générer un fichier XML de couverture
 
@@ -88,19 +99,14 @@ pytest --cov=src --cov-report=term-missing
 pytest --cov=src --cov-report=xml
 ```
 
-✅ Crée `coverage.xml` pour l’exploitation en CI/CD (ex: Codecov).
+ Crée `coverage.xml` pour l’exploitation en CI/CD 
 
 ---
 
 ## Résultat obtenu
 
-* Tous les tests passent :
-
-  * `4 passed`
-* Couverture de code :
-
-  * objectif : atteindre une couverture maximale
-  * après ajout du test qui déclenche l’erreur de colonne manquante, la couverture augmente (ex: de 95% vers 100% selon les tests)
+* Tous les tests passent (100 %)
+* Couverture de code : atteindre une couverture maximale (100% selon les tests)
 
 ---
 
@@ -120,15 +126,4 @@ Il permet de :
 
 ---
 
-## Conclusion
-
-Ce projet montre une démarche DevOps simple :
-
-* écrire du code + écrire des tests
-* vérifier automatiquement via CI
-* mesurer la qualité via coverage
-
-C’est une base réutilisable pour des projets plus grands (DataOps / MLOps).
-
-```
 

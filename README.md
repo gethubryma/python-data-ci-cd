@@ -132,7 +132,3 @@ C’est une base réutilisable pour des projets plus grands (DataOps / MLOps).
 
 ```
 
-Si tu veux, je peux aussi :
-- te générer un README **plus court (10-15 lignes)** si ton prof aime les README simples
-- ou intégrer **le nom du repo / NOM_PRENOM / capture des résultats** pour faire un README “livrable final”.
-```

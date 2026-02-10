@@ -19,10 +19,10 @@ def test_build_dataframe_structure_and_types():
     # 8 lignes
     assert len(df) == 8
 
-    # Types cohérents (int / float / string)
+    # Types cohérents (entier / float / string)
     assert pd.api.types.is_integer_dtype(df["age"])
     assert pd.api.types.is_float_dtype(df["salaire"])
-    assert pd.api.types.is_object_dtype(df["departement"])  # string en pandas = object
+    assert pd.api.types.is_string_dtype(df["departement"])  # accepte object ou string
 
 
 def test_means():

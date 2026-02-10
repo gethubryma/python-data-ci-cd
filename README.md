@@ -20,15 +20,16 @@ Ce projet a pour but de mettre en place une démarche **CI (Intégration Continu
 
 NOM_PRENOM/
 ├── src/
-│ ├── init.py
-│ └── df_ops.py
+│   ├── __init__.py
+│   └── df_ops.py
 ├── tests/
-│ └── test_df_ops.py
+│   └── test_df_ops.py
 ├── requirements.txt
 └── .github/
-└── workflows/
-└── tests.yml
----
+    └── workflows/
+        └── tests.yml
+
+
 
 ## Ce que j’ai fait (étapes)
 

@@ -32,8 +32,7 @@ NOM_PRENOM/
     └── workflows/
         └── tests.yml
 
-
-
+```
 
 ## Ce que j’ai fait (étapes)
 

@@ -13,34 +13,31 @@ from df_ops import (
 def test_build_dataframe_structure_and_types():
     df = build_dataframe()
 
-    # Colonnes attendues
+    # Colonnes exactes
     assert list(df.columns) == ["age", "salaire", "departement"]
 
-    # 8 lignes
+    # Nombre de lignes
     assert len(df) == 8
 
-    # Types cohérents (entier / float / string)
+    # Types cohérents
     assert pd.api.types.is_integer_dtype(df["age"])
     assert pd.api.types.is_float_dtype(df["salaire"])
-    assert pd.api.types.is_string_dtype(df["departement"])  # accepte object ou string
+
+    # Vérifier que la colonne departement contient bien des strings
+    assert df["departement"].map(type).eq(str).all()
 
 
 def test_means():
     df = build_dataframe()
-
     assert mean_age(df) == pytest.approx(34.5)
     assert mean_salary(df) == pytest.approx(3775.0)
 
 
 def test_filter_by_department_it():
     df = build_dataframe()
-
     filtered = filter_by_department(df, "IT")
 
-    # Nombre de lignes IT attendu
     assert len(filtered) == 4
-
-    # Toutes les lignes doivent être IT
     assert (filtered["departement"] == "IT").all()
 
 

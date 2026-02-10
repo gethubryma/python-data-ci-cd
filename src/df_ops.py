@@ -11,10 +11,9 @@ def build_dataframe() -> pd.DataFrame:
 
 
 def _check_columns(df: pd.DataFrame, required: list[str]) -> None:
-    """Vérifie que le DataFrame contient les colonnes attendues."""
     missing = [col for col in required if col not in df.columns]
     if missing:
-        raise ValueError(f"Colonnes manquantes dans le DataFrame : {missing}")
+        raise ValueError(f"Colonnes manquantes : {missing}")
 
 
 def mean_age(df: pd.DataFrame) -> float:

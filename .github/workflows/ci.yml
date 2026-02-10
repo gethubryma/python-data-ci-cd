@@ -25,4 +25,5 @@ jobs:
 
       - name: Run tests
         run: |
-          PYTHONPATH=src pytest -q --cov=df_ops --cov-report=term --cov-report=xml
+          PYTHONPATH=src pytest -q --cov=src
+         

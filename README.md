@@ -18,6 +18,9 @@ Ce projet a pour but de mettre en place une démarche **CI (Intégration Continu
 
 ## Structure du projet
 
+## Structure du projet
+
+```text
 NOM_PRENOM/
 ├── src/
 │   ├── __init__.py
@@ -28,6 +31,7 @@ NOM_PRENOM/
 └── .github/
     └── workflows/
         └── tests.yml
+
 
 
 

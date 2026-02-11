@@ -18,8 +18,6 @@ Ce projet a pour but de mettre en place une démarche **CI (Intégration Continu
 
 ## Structure du projet
 
-## Structure du projet
-
 ```text
 NOM_PRENOM/
 ├── src/
@@ -127,6 +125,12 @@ Il permet de :
 * lancer automatiquement les tests à chaque push / pull request
 * installer les dépendances
 * générer la couverture
+
+Le workflow CI teste le projet sur :
+- Python 3.10
+- Python 3.11
+- Python 3.12
+
 
 ---
 

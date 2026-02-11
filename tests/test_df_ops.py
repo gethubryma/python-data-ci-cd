@@ -22,7 +22,8 @@ def test_build_dataframe():
     # Types 
     assert pd.api.types.is_integer_dtype(df["age"])
     assert pd.api.types.is_float_dtype(df["salaire"])
-    assert pd.api.types.is_object_dtype(df["departement"])
+    assert pd.api.types.is_string_dtype(df["departement"])
+
 
 
 def test_means():

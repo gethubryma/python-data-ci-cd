@@ -13,7 +13,7 @@ from src.df_ops import (
 def test_build_dataframe_structure_and_types():
     df = build_dataframe()
 
-    # Colonnes exactes
+    # Colonnes
     assert list(df.columns) == ["age", "salaire", "departement"]
 
     # Nombre de lignes

@@ -30,7 +30,7 @@ NOM_PRENOM/
 ├── requirements.txt
 └── .github/
     └── workflows/
-        └── tests.yml
+        └── ci.yml
 
 ```
 

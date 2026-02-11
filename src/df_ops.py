@@ -7,29 +7,30 @@ def build_dataframe() -> pd.DataFrame:
         "salaire": [2800.0, 3200.0, 2100.0, 5000.0, 3800.0, 2600.0, 6200.0, 4500.0],
         "departement": ["IT", "IT", "HR", "Finance", "IT", "HR", "Finance", "IT"],
     }
-    return pd.DataFrame(data)
 
-
-def _check_columns(df: pd.DataFrame, required: list[str]) -> None:
-    missing = [col for col in required if col not in df.columns]
-    if missing:
-        raise ValueError(f"Colonnes manquantes : {missing}")
-
+    df = pd.DataFrame(data)
+    return df
 
 def mean_age(df: pd.DataFrame) -> float:
-    _check_columns(df, ["age"])
+    if "age" not in df.columns:
+        raise ValueError("Le DataFrame doit contenir la colonne 'age'")
     return float(df["age"].mean())
 
 
 def mean_salary(df: pd.DataFrame) -> float:
-    _check_columns(df, ["salaire"])
+    if "salaire" not in df.columns:
+        raise ValueError("Le DataFrame doit contenir la colonne 'salaire'")
     return float(df["salaire"].mean())
 
 
 def filter_by_department(df: pd.DataFrame, dept: str) -> pd.DataFrame:
-    _check_columns(df, ["departement"])
-    return df[df["departement"] == dept]
+    if "departement" not in df.columns:
+        raise ValueError("Le DataFrame doit contenir la colonne 'departement'")
+    return df[df["departement"] == dept].copy()
 
 
 def row_count(df: pd.DataFrame) -> int:
-    return len(df)
+    return int(len(df))
+
+
+
